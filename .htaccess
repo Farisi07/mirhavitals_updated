@@ -1,0 +1,23 @@
+# Serve pages with clean URLs while keeping the existing HTML files.
+Options -MultiViews -Indexes
+DirectoryIndex index.html
+DirectorySlash Off
+RewriteEngine On
+
+# Redirect explicit index.html requests to their directory URL.
+RewriteCond %{THE_REQUEST} \s/+([^\s?]*/)?index\.html[?\s] [NC]
+RewriteRule ^(.*/)?index\.html$ /%1 [R=301,L]
+
+# Redirect old .html addresses without redirecting internal rewrites.
+RewriteCond %{THE_REQUEST} \s/+([^\s?]+)\.html[?\s] [NC]
+RewriteRule ^(.+)\.html$ /%1 [R=301,L]
+
+# Add slashes to real folders, except when a sibling HTML page owns the URL.
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}.html !-f
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.+)$ %{REQUEST_URI}/ [R=301,L]
+
+# This also maps /services to services.html alongside the services directory.
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [END]

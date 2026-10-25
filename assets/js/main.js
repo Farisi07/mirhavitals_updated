@@ -75,15 +75,18 @@
     }
   }
 
-  /* Opened straight from disk (file://), a link to a folder such as "privacy-policy/"
-     would show a file listing instead of the page. Point it at index.html instead.
-     On a web server the clean URL is left untouched. */
-  function fixLocalFolderLinks() {
+  /* Keep clean page URLs usable when previewing the site directly from disk. */
+  function fixLocalPageLinks() {
     if (window.location.protocol !== "file:") return;
-    $$("a[href$='/']").forEach(function (a) {
+    $$("a[href]").forEach(function (a) {
       var raw = a.getAttribute("href");
-      if (/^[a-z]+:/i.test(raw) || raw.charAt(0) === "/") return;
-      a.setAttribute("href", raw + "index.html");
+      if (/^[a-z]+:/i.test(raw) || raw.charAt(0) === "/" || raw.charAt(0) === "#") return;
+      var parts = /^([^?#]*)([?#].*)?$/.exec(raw);
+      var path = parts[1];
+      var suffix = parts[2] || "";
+      if (!path) return;
+      if (/\/$/.test(path)) a.setAttribute("href", path + "index.html" + suffix);
+      else if (!/\.[^/]+$/.test(path)) a.setAttribute("href", path + ".html" + suffix);
     });
   }
 
@@ -474,7 +477,7 @@
      Start
      ------------------------------------------------------------------ */
   bindSiteData();
-  fixLocalFolderLinks();
+  fixLocalPageLinks();
   injectBusinessSchema();
   renderTestimonials();
   initDropdown();

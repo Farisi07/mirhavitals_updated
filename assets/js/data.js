@@ -72,14 +72,14 @@ var IMAGES = {
 
 /* The eight services, in the client's display order. */
 var SERVICES = [
-  { name: "Laboratory Sample Collection at Home", page: "services/lab-sample-collection.html",   image: "lab-collection" },
-  { name: "IV Therapy at Home",                   page: "services/iv-therapy.html",              image: "iv-therapy" },
-  { name: "Doctor Teleconsultation",              page: "services/doctor-teleconsultation.html", image: "teleconsultation" },
-  { name: "Doctor on Call",                       page: "services/doctor-on-call.html",          image: "doctor-on-call" },
-  { name: "Nurse on Call / Home Nursing",         page: "services/nurse-on-call.html",           image: "nurse-on-call" },
-  { name: "Wound Care at Home",                   page: "services/wound-care.html",              image: "wound-care" },
-  { name: "Elderly Care at Home",                 page: "services/elderly-care.html",            image: "elderly-care" },
-  { name: "Medical Weight Management Program",    page: "services/medical-weight-management.html", image: "weight-management" }
+  { name: "Laboratory Sample Collection at Home", page: "services/lab-sample-collection",   image: "lab-collection" },
+  { name: "IV Therapy at Home",                   page: "services/iv-therapy",              image: "iv-therapy" },
+  { name: "Doctor Teleconsultation",              page: "services/doctor-teleconsultation", image: "teleconsultation" },
+  { name: "Doctor on Call",                       page: "services/doctor-on-call",          image: "doctor-on-call" },
+  { name: "Nurse on Call / Home Nursing",         page: "services/nurse-on-call",           image: "nurse-on-call" },
+  { name: "Wound Care at Home",                   page: "services/wound-care",              image: "wound-care" },
+  { name: "Elderly Care at Home",                 page: "services/elderly-care",            image: "elderly-care" },
+  { name: "Medical Weight Management Program",    page: "services/medical-weight-management", image: "weight-management" }
 ];
 
 /* Google review screenshots shown in the home page testimonials carousel.
