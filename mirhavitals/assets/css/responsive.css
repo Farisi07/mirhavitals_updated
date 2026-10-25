@@ -1,0 +1,162 @@
+/* ==========================================================================
+   Mirha Vitals Home Healthcare LLC
+   responsive.css : breakpoints (480, 768, 1024, 1280, 1536)
+   The base styles in style.css describe the large desktop layout; the rules
+   below adapt it downwards and tune the very large screens.
+   ========================================================================== */
+
+/* ---------- 1536 and up ---------- */
+@media (min-width: 1536px) {
+  .container { width: min(1320px, 100% - var(--gutter) * 2); }
+  .site-header__inner { width: min(1440px, 100% - var(--gutter) * 2); }
+  .hero { min-height: min(100svh, 980px); }
+}
+
+/* ---------- below 1536 ---------- */
+@media (max-width: 1535.98px) {
+  .nav__link { padding-inline: 13px; }
+  .nav__link::after { left: 13px; right: 13px; }
+}
+
+/* ---------- below 1400: tighten header ---------- */
+@media (max-width: 1399.98px) {
+  .brand__word { display: none; }
+  .header-cta .btn { padding-inline: 18px; }
+}
+
+/* ---------- below 1280 ---------- */
+@media (max-width: 1279.98px) {
+  .carousel__track { --per: 3; }
+  .carousel--testimonials .carousel__track { --per: 2; }
+  .footer__top { grid-template-columns: 1.2fr 1fr 1fr; }
+  .footer__brand { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
+  .footer__tag { margin-top: 0; }
+  .site-footer .footer__brand .socials { margin-top: 0; margin-left: auto; }
+  .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ccard { min-height: 260px; }
+  .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bento__quote { grid-row: auto; }
+  .bento__card--wide { grid-column: span 1; }
+}
+
+/* ---------- below 1160: mobile navigation ---------- */
+@media (max-width: 1159.98px) {
+  :root { --header-h: 76px; }
+  .site-header.is-scrolled { --header-h: 66px; }
+  .nav, .header-cta .btn { display: none; }
+  .brand__word { display: flex; }
+  .header-call, .burger {
+    display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%;
+    border: 1.5px solid var(--purple-700); color: var(--purple-700); background: rgba(255, 255, 255, 0.7);
+  }
+  .burger { background: var(--purple-700); color: #fff; }
+  .brand__logo img { height: 44px; }
+  .site-header.is-scrolled .brand__logo img { height: 40px; }
+  .dha-plate { padding: 8px; }
+  .dha-plate img, .site-header.is-scrolled .dha-plate img { height: 30px; }
+  .site-header.is-scrolled .dha-plate { padding: 7px; }
+  .brand__divider { height: 30px; }
+}
+
+/* ---------- below 1024 ---------- */
+@media (max-width: 1023.98px) {
+  .hero { display: flex; flex-direction: column; align-items: stretch; min-height: 0; padding-bottom: 56px; }
+  .hero__inner { order: 1; }
+  .hero__media { order: 2; }
+  .hero__inner { gap: 36px; }
+  .hero__content { max-width: 720px; }
+  .hero__media { position: relative; inset: auto; width: min(100% - var(--gutter) * 2, 1240px); margin: 40px auto 0; aspect-ratio: 16 / 10; border-radius: var(--r-lg); overflow: hidden; -webkit-mask-image: none; mask-image: none; box-shadow: var(--shadow-lg); }
+  .hero__card { right: calc(var(--gutter) + 16px); bottom: 72px; }
+  .hero__beat { display: none; }
+
+  .cred, .vm__row, .svc-row, .detail, .serve, .info-split { grid-template-columns: minmax(0, 1fr); }
+  .vm__row:nth-child(even) .vm__media, .svc-row:nth-child(even) .svc-row__media { order: 0; }
+  .cred__plate { aspect-ratio: 16 / 9; }
+  .serve__aside { position: static; }
+
+  .founder { grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); }
+  .founder__text { grid-column: 1 / -1; }
+  .quote-card { margin-left: -56px; }
+
+  .gov__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hours { grid-template-columns: minmax(0, 1fr); }
+  .cta__photo { width: 70%; opacity: 0.45; }
+  .related { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .related > :nth-child(3) { display: none; }
+}
+
+/* ---------- below 768 ---------- */
+@media (max-width: 767.98px) {
+  .section-head { flex-direction: column; align-items: flex-start; }
+  .section-head--center { align-items: center; }
+  .features__list { grid-template-columns: repeat(2, 1fr); gap: 22px 0; }
+  .features__item { justify-content: flex-start; padding-inline: 12px; }
+  .features__item:nth-child(odd) { border-left: 0; padding-left: 0; }
+  .features__ico { width: 48px; height: 48px; }
+  .features__item span { font-size: 0.92rem; }
+
+  .carousel__track { --per: 1.6; --gap: 16px; }
+  .carousel--testimonials .carousel__track { --per: 1.15; }
+  .cred__points { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .cred__points li { flex-direction: row; align-items: center; }
+
+  .founder { grid-template-columns: minmax(0, 1fr); }
+  .founder__photo { max-width: 420px; }
+  .quote-card { margin: -64px 0 0 28px; }
+
+  .faq__btn { padding: 16px 16px 16px 20px; min-height: 64px; }
+  .faq__a { padding: 0 20px 22px 20px; }
+  .faq__ico { width: 36px; height: 36px; }
+
+  .footer__top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer__col--contact { grid-column: 1 / -1; }
+  .site-footer .footer__brand .socials { margin-left: 0; width: 100%; }
+  .footer__bottom-inner { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; padding-bottom: 28px; }
+  .back-top { justify-self: center; }
+
+  .book, .pn, .gov__grid { grid-template-columns: minmax(0, 1fr); }
+  .pn__link--next { text-align: left; align-items: flex-start; }
+  .notice { grid-template-columns: minmax(0, 1fr); }
+  .note-band { flex-direction: column; }
+  .bento { grid-template-columns: minmax(0, 1fr); }
+  .bento__quote, .bento__card--wide { grid-column: auto; }
+  .bento__card { min-height: 0; }
+  .contact-grid { grid-template-columns: minmax(0, 1fr); }
+  .ccard { min-height: 0; }
+  .page-banner__media { aspect-ratio: 16 / 10; }
+  .cta__photo { display: none; }
+
+  .fab { right: 16px; bottom: 16px; }
+  .fab__btn { --fab-size: 52px; }
+}
+
+/* ---------- below 560 ---------- */
+@media (max-width: 559.98px) {
+  .brand { gap: 10px; }
+  .brand__word { display: none; }
+  .hero__actions .btn, .cta__actions .btn, .page-banner__actions .btn, .book__actions .btn { width: 100%; }
+  .related { grid-template-columns: minmax(0, 1fr); }
+  .related > :nth-child(3) { display: block; }
+  .related .svc-card { aspect-ratio: 4 / 4.4; }
+}
+
+/* ---------- below 480 ---------- */
+@media (max-width: 479.98px) {
+  :root { --gutter: 16px; }
+  .carousel__track { --per: 1.18; }
+  .carousel--testimonials .carousel__track { --per: 1.06; }
+  .hero__card { right: calc(var(--gutter) + 10px); bottom: 66px; padding: 10px 14px 10px 10px; }
+  .hero__ring { width: 46px; height: 46px; font-size: 0.66rem; }
+  .hero__card b { font-size: 1.02rem; }
+  .brand__logo img, .site-header.is-scrolled .brand__logo img { height: 38px; }
+  .dha-plate, .site-header.is-scrolled .dha-plate { padding: 6px; border-radius: 10px; }
+  .dha-plate img, .site-header.is-scrolled .dha-plate img { height: 24px; }
+  .brand__divider { height: 26px; }
+  .header-cta { gap: 8px; }
+  .header-call, .burger { width: 44px; height: 44px; }
+  .footer__top { grid-template-columns: minmax(0, 1fr); }
+  .quote-card { margin-left: 16px; }
+  .mnav__link { font-size: 1.5rem; }
+  .tcard { padding: 24px 22px 22px; }
+  .for-grid { grid-template-columns: minmax(0, 1fr); }
+}
